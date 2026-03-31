@@ -19,6 +19,10 @@ public class LMSService {
 
     // F1 - Retrieve Student Enrollments: Return a list of all course enrollments for a specific student.
     public List<Enrollment> getStudentEnrollments(Long studentId) {
+        if (studentId == null) {
+            return Collections.emptyList();
+        }
+
         return enrollmentRepository.findByStudentId(studentId);
     }
 
