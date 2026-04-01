@@ -65,7 +65,7 @@ public class LMSAdminGUI extends JFrame {
         topArea.add(searchPanel, BorderLayout.CENTER);
 
         // Student info panel
-        studentInfoLabel = new JLabel("  No student loaded.", SwingConstants.LEFT);
+        studentInfoLabel = new JLabel("No student loaded.", SwingConstants.LEFT);
         studentInfoLabel.setFont(new Font("SansSerif", Font.ITALIC, 12));
         studentInfoLabel.setForeground(Color.GRAY);
         studentInfoLabel.setBorder(new EmptyBorder(4, 12, 4, 12));
@@ -98,7 +98,7 @@ public class LMSAdminGUI extends JFrame {
         add(new JScrollPane(enrollmentTable), BorderLayout.CENTER);
 
         // status bar with count and timestamp
-        statusLabel = new JLabel("  Enter a Student ID above and press Search.");
+        statusLabel = new JLabel("Enter a Student ID above and press Search.");
         statusLabel.setFont(new Font("SansSerif", Font.PLAIN, 11));
         statusLabel.setForeground(Color.DARK_GRAY);
         statusLabel.setBorder(new EmptyBorder(4, 6, 4, 6));
@@ -155,7 +155,7 @@ public class LMSAdminGUI extends JFrame {
                         // show student name + email from first record
                         var student = enrollments[0].getStudent();
                         if (student != null) {
-                            studentInfoLabel.setText("  Student: " + student.getName() + "   |   Email: " + student.getEmail());
+                            studentInfoLabel.setText("Student: " + student.getName() + "   |   Email: " + student.getEmail());
                             studentInfoLabel.setForeground(new Color(30, 80, 150));
                         }
 
@@ -166,19 +166,19 @@ public class LMSAdminGUI extends JFrame {
                             tableModel.addRow(new Object[]{e.getId(), courseName, instructorName});
                         }
                         String time = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-                        setStatus("  Found " + enrollments.length + " enrollment(s) for Student ID " + id + "   |   Last searched: " + time, new Color(0, 120, 0));
+                        setStatus("Found " + enrollments.length + " enrollment(s) for Student ID " + id + "   |   Last searched: " + time, new Color(0, 120, 0));
 
                     } else {
                         studentInfoLabel.setText("  Student ID " + id + " - no enrollments found.");
                         studentInfoLabel.setForeground(new Color(160, 90, 0));
-                        setStatus("  Student ID " + id + " is not currently enrolled in any course.", new Color(180, 100, 0));
+                        setStatus("Student ID " + id + " is not currently enrolled in any course.", new Color(180, 100, 0));
                     }
 
                 } catch (Exception ex) {
                     studentInfoLabel.setText("  Connection error.");
                     studentInfoLabel.setForeground(Color.RED);
                     String msg = "Cannot connect to server. Is the Spring Boot application running on port 8080?";
-                    setStatus("  Error: " + msg, Color.RED);
+                    setStatus("Error: " + msg, Color.RED);
                     JOptionPane.showMessageDialog(LMSAdminGUI.this,
                             msg, "Connection Error", JOptionPane.ERROR_MESSAGE);
                 }
