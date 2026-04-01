@@ -169,7 +169,7 @@ public class LMSAdminGUI extends JFrame {
                         setStatus("Found " + enrollments.length + " enrollment(s) for Student ID " + id + "   |   Last searched: " + time, new Color(0, 120, 0));
 
                     } else {
-                        studentInfoLabel.setText("  Student ID " + id + " - no enrollments found.");
+                        studentInfoLabel.setText("Student ID " + id + " - no enrollments found.");
                         studentInfoLabel.setForeground(new Color(160, 90, 0));
                         setStatus("Student ID " + id + " is not currently enrolled in any course.", new Color(180, 100, 0));
                     }
